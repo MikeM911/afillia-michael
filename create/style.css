@@ -1,0 +1,274 @@
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: linear-gradient(180deg, #000 0%, rgb(12, 12, 12) 0%, #000000c5 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Inter', sans-serif;
+  color: white;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 40px;
+  background-image: url('assets/background-pic.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain; 
+}
+
+.form-wrapper {
+  max-width: 700px;
+  width: 100%;
+}
+
+.logo-slogan-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.logo {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  margin-top: -90px;
+  margin-left: -90px;
+  align-self: flex-start;
+}
+
+.tagline {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #fff;
+  margin-top: -50px;
+  margin-left: -60px;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: -70px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.row {
+  display: flex;
+  gap: 24px;
+}
+
+input,
+.styled-select {
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 24px;
+  padding: 16px 24px;
+  color: #bdbdbd;
+  font-size: 1.1rem;
+  outline: none;
+  width: 100%;
+  transition: border 0.2s;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: #bdbdbd;
+  opacity: 1;
+}
+
+input:focus,
+.styled-select:focus {
+  border-color: #bdbdbd;
+}
+
+.styled-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent url("data:image/svg+xml;utf8,<svg fill='white' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat right 24px center/18px 18px;
+  padding-right: 48px;
+  cursor: pointer;
+}
+
+.styled-select option {
+  color: #000;
+  background: #fff;
+}
+
+/* Remove custom dropdown styles */
+.custom-select-wrapper,
+.custom-select,
+.custom-select:focus,
+.custom-select-placeholder,
+.custom-arrow,
+.custom-options,
+.custom-options li,
+.custom-options li.selected,
+.custom-options li:hover {
+  all: unset;
+  display: none !important;
+}
+
+/* Password group and eye icon */
+.password-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 24px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #bdbdbd;
+  gap: 4px;
+  margin: 8px 0 0 0;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.terms input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: #231f20;
+  width: auto;
+  padding: 0;
+}
+
+.terms a {
+  color: #bdbdbd;
+  text-decoration: underline;
+}
+
+.register-btn {
+  background: #231f20;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 14px 48px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 250px;
+}
+
+.register-row {
+  display: flex;
+  align-items: center;
+  gap: 16px; 
+  margin-top: 10px;
+}
+
+.login-text {
+  margin-top: 40px;
+  color: #bdbdbd;
+  font-size: 1.1rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.login-text a {
+  color: #4fc3f7;
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+.flag-select {
+  width: 60px;
+  padding-left: 10px;
+}
+
+/* ---- intl-tel-input customizations ---- */
+.iti {
+  width: 100% !important;
+}
+
+#phone {
+  width: 100% !important;
+  min-width: 320px;
+  font-size: 1.1rem;
+  padding-left: 56px !important; /* space for flag and code */
+  box-sizing: border-box;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 24px;
+  color: #fff;
+  height: 54px;
+}
+
+.iti__selected-flag {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+  height: 54px;
+  border-radius: 24px 0 0 24px;
+  background: transparent;
+}
+
+.iti__country-list {
+  font-size: 1rem;
+  background: #222;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+}
+
+.iti__country {
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iti__country-name {
+  color: #000;
+}
+
+.iti__country.iti__highlight {
+  background: #333;
+}
+
+.iti__dial-code {
+  color: #4fc3f7;
+  float: left;
+  margin-left: 0;
+  margin-right: 8px;
+  min-width: 40px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1.05em;
+  display: inline-block;
+}
+
+.iti--allow-dropdown input,
+.iti--allow-dropdown input[type="tel"] {
+  padding-left: 56px !important;
+}
+
+.row input[type="tel"] {
+  flex: 1 1 100%;
+  min-width: 320px;
+}

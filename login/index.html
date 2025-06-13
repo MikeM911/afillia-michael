@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="background-img"></div>
+    <div class="login-container">
+      <form class="login-form" id="loginForm">
+        <div class="logo">
+          <img src="assets/logo.png" alt="Logo" width="90" height="90" />
+        </div>
+        <div id="errorMessage" style="color: red; display: none; margin-bottom: 10px;"></div>
+        <h1>Login</h1>
+        <div class="input-group">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" id="email" placeholder="Enter your email" required />
+        </div>
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="password" placeholder="Enter your password" required />
+          <i class="fa-solid fa-eye-slash toggle-password"></i>
+        </div>
+        <div class="options">
+          <label><input type="checkbox" /> Remember me</label>
+          <a href="#" class="forgot">Forget Password?</a>
+        </div>
+        <button type="submit" class="sign-in-btn">Sign In</button>
+        <div class="register-link">
+          Don’t have an account? <a href="../create/index.html">Register</a>
+        </div>
+      </form>
+    </div>
+    <script src="login.js"></script>
+  </body>
+</html>

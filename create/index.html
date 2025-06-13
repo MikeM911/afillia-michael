@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Afillia</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/css/intlTelInput.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/intlTelInput.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-wrapper">
+        <div class="logo-slogan-row">
+          <img src="assets/logo.png" alt="Logo" class="logo" />
+          <p class="tagline">The AI that runs your workflow.</p>
+        </div>
+        <h1>Get Started Right Now</h1>
+        <form>
+          <div class="row">
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name *"
+              required
+            />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name *"
+              required
+            />
+          </div>
+          <input type="email" name="email" placeholder="Email *" required />
+          <div class="password-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password *"
+              required
+            />
+            <span class="eye-icon">
+              <img src="assets/Vector.svg" alt="Show Password" />
+            </span>
+          </div>
+          <div class="password-group">
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password *"
+              required
+            />
+            <span class="eye-icon">
+              <img src="assets/Vector.svg" alt="Show Password" />
+            </span>
+          </div>
+          <div class="row">
+            <!-- Native Country Dropdown -->
+            <select name="country" required class="styled-select">
+              <option value="">Country *</option>
+              <option value="ca">🇨🇦 Canada</option>
+              <option value="us">🇺🇸 United States</option>
+              <option value="gb">🇬🇧 United Kingdom</option>
+              <option value="au">🇦🇺 Australia</option>
+              <option value="fr">🇫🇷 France</option>
+              <option value="de">🇩🇪 Germany</option>
+              <option value="in">🇮🇳 India</option>
+              <option value="jp">🇯🇵 Japan</option>
+              <option value="cn">🇨🇳 China</option>
+              <option value="br">🇧🇷 Brazil</option>
+            </select>
+            <input type="text" name="city" placeholder="City *" required />
+          </div>
+          <div class="row">
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="Phone Number *"
+              required
+            />
+          </div>
+          <label class="terms">
+            <input type="checkbox" required />
+            I Accept <a href="#">Terms & Conditions</a> and
+            <a href="#">Privacy Policy</a>
+          </label>
+          <div class="register-row">
+            <button type="submit" class="register-btn">Register</button>
+            <p class="login-text">
+              Already have an account? <a href="../login/index.html">Login</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
