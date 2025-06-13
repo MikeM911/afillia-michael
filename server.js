@@ -6,7 +6,12 @@ const path = require('path');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname)));
+
+// Serve static files from the project root so /create and /login are accessible
+app.use(express.static(__dirname));
+app.get('/', (req, res) => {
+  res.redirect('/create/index.html');
+});
 
 app.post('/api/register', async (req, res) => {
   const { email, password, firstName, lastName, country, city, phone } = req.body;
@@ -20,6 +25,24 @@ app.post('/api/register', async (req, res) => {
     res.json({ success: true });
   } catch (err) {
     console.error('Error during registration:', err);
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+app.post('/api/login', async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const result = await pool.query(
+      'SELECT * FROM users WHERE email = $1 AND password = $2',
+      [email, password]
+    );
+    if (result.rows.length > 0) {
+      res.json({ success: true });
+    } else {
+      res.status(401).json({ success: false, message: 'Invalid email or password' });
+    }
+  } catch (err) {
+    console.error('Error during login:', err);
     res.status(500).json({ success: false, error: err.message });
   }
 });

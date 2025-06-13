@@ -34,3 +34,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  try {
+    const response = await fetch('http://localhost:3000/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+
+    const result = await response.json();
+    if (result.success) {
+      window.location.href = "welcome.html";
+    } else {
+      document.getElementById('errorMessage').style.display = 'block';
+      document.getElementById('errorMessage').textContent = result.message || 'Login failed';
+    }
+  } catch (err) {
+    document.getElementById('errorMessage').style.display = 'block';
+    document.getElementById('errorMessage').textContent = 'An error occurred: ' + err.message;
+  }
+});
