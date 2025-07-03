@@ -49,7 +49,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
     const result = await response.json();
     if (result.success) {
-      window.location.href = "welcome.html";
+      window.location.href = "inbox.html";
     } else {
       document.getElementById('errorMessage').style.display = 'block';
       document.getElementById('errorMessage').textContent = result.message || 'Login failed';
