@@ -3,10 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inbox - Afillia</title>
+    <link rel="stylesheet" href="style-inbox.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome to Afillia</h1>
-    <p>You have successfully logged in</p>
+    <div class="vertical-sidebar">
+        <img src="assets/logo2.png" alt="Afillia Logo" class="sidebar-logo">
+        <div class="vsb-icons">
+            <div class="vsb-center-icons">
+                <img src="assets/dashboard.svg" alt="Dashboard" class="vsb-icon">
+                <img src="assets/extension.svg" alt="Extensions" class="vsb-icon">
+                <img src="assets/settings.svg" alt="Settings" class="vsb-icon">
+            </div>
+            <div class="vsb-bottom-icons">
+                <img src="assets/notification.svg" alt="Notifications" class="vsb-icon">
+                <img src="assets/help.svg" alt="Help" class="vsb-icon">
+                <img src="assets/profile.png" alt="Profile" class="vsb-profile">
+            </div>
+        </div>
+    </div>
+    <div class="app-icons-bar">
+        <img src="assets/slack.png" alt="Slack" class="app-icon">
+        <img src="assets/calendar.png" alt="Calendar" class="app-icon">
+        <img src="assets/gmail.png" alt="Gmail" class="app-icon">
+        <img src="assets/discord.png" alt="Discord" class="app-icon">
+        <!-- Add more icons as needed -->
+    </div>
+    <div class="header">
+        <span class="logo">Gmail</span>
+        <div class="search">
+            <input type="text" placeholder="Search mail">
+        </div>
+        <img src="assets/profile.png" alt="Profile" style="width:40px;height:40px;border-radius:50%;">
+    </div>
+    <div class="inbox-container">
+        <nav class="sidebar">
+            <ul>
+                <li class="active">Inbox</li>
+                <li>Starred</li>
+                <li>Sent</li>
+                <li>Drafts</li>
+                <li>Spam</li>
+                <li>Trash</li>
+            </ul>
+        </nav>
+        <main class="main">
+            <div class="email-list">
+                <div class="email-list-header">Primary</div>
+                <div id="emails"></div>
+            </div>
+        </main>
+    </div>
+    <script src="welcome.js"></script>
 </body>
 </html>
