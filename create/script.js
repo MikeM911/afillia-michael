@@ -1,6 +1,13 @@
 // --- Phone input initialization and validation ---
 document.addEventListener('DOMContentLoaded', function() {
   var phoneInput = document.querySelector("#phone");
+  // Prevent pasting into Confirm Password field
+  const confirmPasswordInput = document.querySelector('input[name="confirmPassword"]');
+  if (confirmPasswordInput) {
+    confirmPasswordInput.addEventListener('paste', function(e) {
+      e.preventDefault();
+    });
+  }
   let iti = null;
   if (window.intlTelInput && phoneInput) {
     iti = window.intlTelInput(phoneInput, {
@@ -13,6 +20,68 @@ document.addEventListener('DOMContentLoaded', function() {
       utilsScript:
         "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/utils.js",
     });
+  }
+
+  // --- Email availability check ---
+  const emailInput = document.querySelector('input[name="email"]');
+  if (emailInput) {
+    // Create error message element
+    const emailError = document.createElement('div');
+    emailError.style.color = 'red';
+    emailError.style.marginBottom = '8px';
+    emailError.style.display = 'none';
+    emailError.style.fontWeight = 'bold';
+    emailInput.parentNode.insertBefore(emailError, emailInput);
+
+    let lastCheckedEmail = '';
+    let lastCheckResult = false;
+
+    emailInput.addEventListener('blur', async function() {
+      const email = emailInput.value.trim();
+      if (!email) {
+        emailError.textContent = '';
+        emailError.style.display = 'none';
+        emailInput.style.borderColor = '';
+        lastCheckedEmail = '';
+        lastCheckResult = false;
+        return;
+      }
+      try {
+        const response = await fetch('/api/check-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const data = await response.json();
+        lastCheckedEmail = email;
+        lastCheckResult = data.exists;
+        if (data.exists) {
+          emailError.textContent = 'Email already taken';
+          emailError.style.display = 'block';
+          emailInput.style.borderColor = 'red';
+        } else {
+          emailError.textContent = '';
+          emailError.style.display = 'none';
+          emailInput.style.borderColor = '';
+        }
+      } catch (err) {
+        emailError.textContent = 'Error checking email';
+        emailError.style.display = 'block';
+        emailInput.style.borderColor = 'red';
+      }
+    });
+
+    // Prevent form submission if email is taken
+    const form = document.querySelector('form');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        // Only block if the error is visible and not empty
+        if (emailError.style.display === 'block' && emailError.textContent) {
+          emailInput.focus();
+          e.preventDefault();
+        }
+      });
+    }
   }
 
   // --- Password visibility toggle ---
